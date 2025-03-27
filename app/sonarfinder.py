@@ -30,11 +30,7 @@ def find_the_sonar() -> Optional[str]:
 
     nmap = nmap3.Nmap()
     # generate the scan mask from our current ips
-    # networks = json.loads(request("http://host.docker.internal/cable-guy/v1.0/ethernet"))
-    # Instead of querying Cable Guy, define your network configuration manually.
-    networks = [{
-        "addresses": [{"ip": "192.168.194.0", "mode": "server"}] # TODO: Remove this line and uncomment the line above for Docker
-    }]
+    networks = json.loads(request("http://host.docker.internal/cable-guy/v1.0/ethernet"))
     current_networks = [network["addresses"] for network in networks]
     # this looks like [{'ip': '192.168.2.2', 'mode': 'server'}]
     current_ips = []
