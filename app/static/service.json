@@ -1,0 +1,9 @@
+{
+    "name":"Water Linked Sonar",
+    "description":"Driver for Water Linked's Sonar 3d-15",
+    "icon":"mdi-dots-vertical",
+    "company":"Water Linked",
+    "version":"1.0.1",
+    "webpage":"https://github.com/waterlinked/BlueOS-Sonar-Extention",
+    "api":""
+ }
