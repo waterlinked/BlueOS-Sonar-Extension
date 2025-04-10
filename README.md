@@ -4,7 +4,6 @@ This is a BlueOS extension for detecting the Water Linked Sonar 3D-15 on the net
 within BlueOS. The extension simplifies the process of finding the sonar's IP address and integrates it seamlessly into 
 the BlueOS environment.
 
----
 
 ## Features
 - Automatically detects the Water Linked Sonar 3D-15 on the network.
@@ -12,7 +11,6 @@ the BlueOS environment.
 - Lightweight and optimized for use with BlueOS.
 - Built as a Docker container for easy deployment.
 
----
 
 ## Installation
 
