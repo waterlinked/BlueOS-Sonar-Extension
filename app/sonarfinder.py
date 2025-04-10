@@ -9,24 +9,42 @@ from blueoshelper import request
 
 
 def check_for_proper_sonar(ip: str) -> bool:
-    # Check the API for the product_name field
+    """
+    Check the API for the product_name field
+    
+    Args:
+        ip (str): The IP address of the sonar
+    Returns:
+        bool: True if the sonar is a proper sonar, False otherwise
+    """
     url = f"http://{ip}/api/v1/about"
     try:
-        return "Sonar" in json.loads(request(url))["product_name"]
+        return "Sonar 3D-15" in json.loads(request(url))["product_name"]
     except Exception as e:
         logger.debug(f"{ip} is not a sonar: {e}")
         return False
     json.loads(request(url))
 
 
-def get_ips_wildcards(ips: List[str]):
-    # Takes a list of ip strings and replaces the last field with * for it to be used by nmap
+def get_ips_wildcards(ips: List[str]) -> List[str]:
+    """
+    Takes a list of ip strings and replaces the last field with * for it to be used by nmap
+    
+    Args:
+        ips (List[str]): List of IP addresses in string format
+    Returns:
+        List[str]: List of IP addresses with the last field replaced by *
+    """
     return [".".join([*(ip.split(".")[0:-1]), "*"]) for ip in ips]
 
 
 def find_the_sonar() -> Optional[str]:
-    # The sonar always reports 192.168.194.95 on mdns, so we need to take drastic measures.
-    # Nmap to the rescue!
+    """
+    The sonar always reports 192.168.194.95 on mdns, so we need to take drastic measures.
+    Nmap to the rescue!
+
+    Returns the IP address of the sonar if found, None otherwise.
+    """
 
     nmap = nmap3.Nmap()
     # generate the scan mask from our current ips
@@ -42,7 +60,7 @@ def find_the_sonar() -> Optional[str]:
     logger.info(f"Scanning: {scans} for Sonars")
     candidates = []
     for ip in scans:
-        results = []
+        results: list = []
         while not results:
             try:
                 results = nmap.scan_top_ports(ip, args="-p 80 --open")
@@ -60,6 +78,7 @@ def find_the_sonar() -> Optional[str]:
 
     for candidate in candidates:
         if check_for_proper_sonar(candidate):
-            logger.info(f"Sonar found at {candidate}")
             return candidate
+        logger.debug(f"{candidate} is not a sonar")
+    logger.warning("No sonar found")
     return None
