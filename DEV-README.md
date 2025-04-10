@@ -12,7 +12,8 @@ docker buildx create --use
 
 Login with `docker login`, with username `-u [username]`
 
-Build for the onboard RPi and push to dockerhub:
+Build for the onboard RPi and push to dockerhub:\
+(This command gives the Docker image the version tag *latest*, for release please adhere to the versioning in the [README](./README.md))
 ```bash
 docker buildx build --platform linux/arm/v7 -t waterlinked/blueos-sonar-extension:latest --push .
 ```
@@ -22,7 +23,7 @@ For the settings in BLueOS I used same as DVL in Original settings:
 ```json
 {
   "ExposedPorts": {
-    "9001/tcp": {}
+    "80/tcp": {}
   },
   "HostConfig": {
     "Binds": [
@@ -32,7 +33,7 @@ For the settings in BLueOS I used same as DVL in Original settings:
       "host.docker.internal:host-gateway"
     ],
     "PortBindings": {
-      "9001/tcp": [
+      "80/tcp": [
         {
           "HostPort": ""
         }
