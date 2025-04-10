@@ -19,5 +19,5 @@ Install from the [BlueOS extention manager](https://blueos.cloud/docs/latest/usa
 
 ## Changelog
 
-### V1.0.0
+### v1.0.0
 - Slimed down the DVL extention and made it work with the 3D sonar
