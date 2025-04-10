@@ -10,18 +10,16 @@ COPY app /home/pi/app
 RUN cd /home/pi/app && pip3 install .
 
 LABEL version="1.0.0"
-LABEL permissions='\
-{\
- "ExposedPorts": {\
-   "9001/tcp": {}\
+LABEL permissions='{\
+  "ExposedPorts": {\
+    "80/tcp": {}\
   },\
   "HostConfig": {\
-    "Binds":["/root/.config:/root/.config"],\
     "ExtraHosts": [\
       "host.docker.internal:host-gateway"\
     ],\
     "PortBindings": {\
-      "9001/tcp": [\
+      "80/tcp": [\
         {\
           "HostPort": ""\
         }\
@@ -30,27 +28,27 @@ LABEL permissions='\
   }\
 }'
 LABEL authors='[\
-    {\
-        "name": "Water Linked",\
-        "email": "support@waterlinked.com"\
-    }\
+  {\
+    "name": "Water Linked",\
+    "email": "support@waterlinked.com"\
+  }\
 ]'
 LABEL company='{\
-        "about": "",\
-        "name": "Water Linked",\
-        "email": "support@waterlinked.com"\
-    }'
-LABEL type="device-integration"
-LABEL tags='[\
-        "3dsonar",\
-        "point-cloud",\
-        "waterlinked"\
-    ]'
+  "about": "",\
+  "name": "Water Linked",\
+  "email": "support@waterlinked.com"\
+}'
 LABEL readme='https://raw.githubusercontent.com/waterlinked/BlueOS-Sonar-Extention/{tag}/README.md'
 LABEL links='{\
-        "website": "https://github.com/waterlinked/BlueOS-Sonar-Extention",\
-        "support": "https://github.com/waterlinked/BlueOS-Sonar-Extention/issues"\
-    }'
+  "website": "https://github.com/waterlinked/BlueOS-Sonar-Extention",\
+  "support": "https://github.com/waterlinked/BlueOS-Sonar-Extention/issues"\
+}'
+LABEL type="device-integration"
+LABEL tags='[\
+  "3dsonar",\
+  "point-cloud",\
+  "waterlinked"\
+]'
 LABEL requirements="core >= 1.1"
 
 ENTRYPOINT /home/pi/app/main.py
