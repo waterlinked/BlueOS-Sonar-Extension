@@ -1,7 +1,7 @@
 ### For Developers
 
-This BlueOS extention is based on the 
-[BlueOS-Water-Linked-DVL extention](https://github.com/bluerobotics/BlueOS-Water-Linked-DVL?tab=readme-ov-file)
+This BlueOS extension is based on the 
+[BlueOS-Water-Linked-DVL extension](https://github.com/bluerobotics/BlueOS-Water-Linked-DVL?tab=readme-ov-file)
 
 ## Compiling Docker Image
 

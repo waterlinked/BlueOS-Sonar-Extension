@@ -14,10 +14,10 @@ the BlueOS environment.
 
 ## Installation
 
-Install from the [BlueOS extention manager](https://blueos.cloud/docs/latest/usage/advanced/#extensions-manager).
+Install from the [BlueOS extension manager](https://blueos.cloud/docs/latest/usage/advanced/#extensions-manager).
 
 
 ## Changelog
 
-### v1.0.0
-- Slimed down the DVL extention and made it work with the 3D sonar
+### V1.0.0
+- Slimed down the DVL extension and made it work with the 3D sonar

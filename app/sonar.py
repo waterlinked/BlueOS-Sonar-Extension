@@ -4,22 +4,13 @@ Code for integration of Water Linked Sonar 3D-15 with BlueOS
 
 import time
 import threading
-# from enum import Enum
 
 from loguru import logger
 
 from blueoshelper import request
 from sonarfinder import find_the_sonar
-# from mavlink2resthelper import GPS_GLOBAL_ORIGIN_ID, Mavlink2RestHelper
 
 HOSTNAME = "192.168.194.96"  # Default Sonar IP
-
-
-# class MessageType(str, Enum):
-
-#     @staticmethod
-#     def contains(value):
-#         return value in set(item.value for item in MessageType)
 
 
 # pylint: disable=too-many-instance-attributes
